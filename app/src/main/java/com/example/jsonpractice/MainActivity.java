@@ -8,9 +8,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.noname.homeworkasync.R;
-
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -25,6 +22,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private RecyclerView recyclerView;
+    private ShibeTask shibeTask;
     private ShibeAdapter shibeAdapter;
 
     @Override
@@ -79,12 +77,9 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "doInBackground: " + result);
 
             //convert String(Json) into List<String>
-            String removeBrackets= result.substring(1,result.length()-1);
+            String removeBrackets= result.substring(1, result.length() -1);
             String removeQuotes= removeBrackets.replace("\"","");
             String [] urls= removeQuotes.split(",");
-
-
-
 
 
             return Arrays.asList(urls);
